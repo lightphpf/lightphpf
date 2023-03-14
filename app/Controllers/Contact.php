@@ -12,10 +12,12 @@ class Contact extends Controller
      */
     public function index(): void
     {
-        $data = [
+        $template = $this->twig->load('contact.twig');
+        
+        echo $template->render([
+            'app_url' => $this->app_url,
+            'app_name' => $this->app_name,
             'title' => 'Contact Us'
-        ];
-
-        $this->view('contact', $data);
+        ]);
     }
 }

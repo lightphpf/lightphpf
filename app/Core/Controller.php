@@ -2,13 +2,22 @@
 
 namespace App\Core;
 
+use Twig\Environment;
+
 class Controller
 {
     private $config;
+    protected $twig;
+    protected $app_name;
+    protected $app_url;
 
-    public function __construct(array $config)
+    public function __construct(array $config, Environment $twig)
     {
+        $this->twig = $twig;
         $this->config = $config;
+        
+        $this->app_name = $config['app_name'];
+        $this->app_url = $config['app_url'];
     }
 
     /**

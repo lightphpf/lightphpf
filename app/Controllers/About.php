@@ -12,10 +12,12 @@ class About extends Controller
      */
     public function index(): void
     {
-        $data = [
+        $template = $this->twig->load('about.twig');
+        
+        echo $template->render([
+            'app_url' => $this->app_url,
+            'app_name' => $this->app_name,
             'title' => 'About Us'
-        ];
-
-        $this->view('about', $data);
+        ]);
     }
 }

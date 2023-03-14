@@ -8,7 +8,7 @@ $dotenv->load();
 return [
     'app_name' => $_ENV['APP_NAME'],
     'app_root' => dirname(dirname(__FILE__)) . '/app/',
-    'url_root' => $_ENV['URLROOT'],
+    'app_url' => $_ENV['APP_URL'],
     'database' => [
         'host' => $_ENV['DB_HOST'],
         'db_connect' => $_ENV['DB_CONNECT'],
