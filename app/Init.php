@@ -10,7 +10,8 @@ class Init
     private $app;
     private $controllers;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->app = new App();
         $this->controllers = new Controller();
     }

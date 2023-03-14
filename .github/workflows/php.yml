@@ -31,4 +31,12 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-
+    - name: PHP PSR Coding style
+      run: |
+        ./vendor/bin/phpcs app/Core/App.php --standard=PSR2
+        ./vendor/bin/phpcs app/Core/Controller.php --standard=PSR2
+        ./vendor/bin/phpcs app/Core/Database.php --standard=PSR2
+        ./vendor/bin/phpcs app/Controllers/About.php --standard=PSR2
+        ./vendor/bin/phpcs app/Controllers/Home.php --standard=PSR2
+        ./vendor/bin/phpcs app/Controllers/Contact.php --standard=PSR2
+        ./vendor/bin/phpcs app/Models/User.php --standard=PSR2
