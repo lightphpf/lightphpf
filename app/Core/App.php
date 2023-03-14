@@ -7,14 +7,13 @@ class App
     protected $currentController = '\App\Controllers\Home';
     protected $currentMethod = 'index';
     protected $params = [];
-    protected $config;
 
-    public function __construct()
+    public function __construct(array $config)
     {
         $url = $this->getUrl();
 
         // Look in BLL for first value
-        if ($url && file_exists(APP_ROOT . "/Controllers/" . ucwords($url[0]) . ".php")) {
+        if ($url && file_exists($config['app_root'] . "/Controllers/" . ucwords($url[0]) . ".php")) {
             // If exists, set as controller
             $this->currentController = '\App\Controllers\\' . ucwords($url[0]);
             // Unset 0 Index
@@ -22,7 +21,7 @@ class App
         }
 
         // Instantiate controller class
-        $this->currentController = new $this->currentController();
+        $this->currentController = new $this->currentController($config);
         
         // Check for second part of url
         if (isset($url[1])) {

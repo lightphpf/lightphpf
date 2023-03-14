@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require APP_ROOT. '/Views/partials/head.php' ?>
+    <?php require $data['app_root'] . '/Views/partials/head.php' ?>
 </head>
 <body>
     <h1><?= $data['title'] ?></h1>

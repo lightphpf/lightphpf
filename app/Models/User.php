@@ -8,9 +8,9 @@ class User
 {
     private $db;
 
-    public function __construct()
+    public function __construct(array $conf)
     {
-        $this->db = new Database;
+        $this->db = new Database($conf);
     }
 
     /**

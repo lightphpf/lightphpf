@@ -10,9 +10,9 @@ class Init
     public $app;
     public $controllers;
 
-    public function __construct()
+    public function __construct(array $config)
     {
-        $this->app = new App();
-        $this->controllers = new Controller();
+        $this->app = new App($config);
+        $this->controllers = new Controller($config);
     }
 }
