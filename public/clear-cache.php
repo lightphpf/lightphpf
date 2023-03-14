@@ -24,3 +24,8 @@ foreach ($files as $fileinfo) {
     $action = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
     $action($fileinfo->getRealPath());
 }
+
+$file = fopen("{$cacheDir}/.gitignore", "w") or dump("Unable to open file!");
+$txt = "*\n!.gitignore";
+fwrite($file, $txt);
+fclose($file);
