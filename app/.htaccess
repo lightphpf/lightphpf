@@ -1,0 +1,8 @@
+# Options -Indexes is a directive used in Apache web server configuration to disable the directory listing feature.
+# When this directive is enabled in a directory, the server will no longer display the contents of that directory
+# when a client requests a URL that maps to that directory.
+# Instead, the server will return an error message indicating that the directory listing is not available.
+# This directive is commonly used to prevent unauthorized access to the contents of a directory,
+# as it stops anyone from being able to browse the contents of the directory through a web browser.
+
+Options -Indexes

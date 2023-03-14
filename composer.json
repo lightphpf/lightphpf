@@ -1,0 +1,19 @@
+{
+    "name": "soulaimaneyh/lightphpf",
+    "description": "LightPHPF is a micro PHP framework that follows the Model-View-Controller (MVC) architecture pattern.",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Soulaimane yahya",
+            "email": "soulaimaneyh07@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^5.0",
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
