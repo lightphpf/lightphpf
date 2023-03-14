@@ -7,8 +7,8 @@ use App\Core\Controller;
 
 class Init
 {
-    private $app;
-    private $controllers;
+    public $app;
+    public $controllers;
 
     public function __construct()
     {

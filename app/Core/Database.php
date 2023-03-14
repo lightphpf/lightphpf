@@ -8,6 +8,8 @@ use PDOException;
 class Database
 {
     private $dbHost = DB_HOST;
+    private $dbConnect = DB_CONNECT;
+    private $dbPort = DB_PORT;
     private $dbUser = DB_USERNAME;
     private $dbPass = DB_PASSWORD;
     private $dbName = DB_NAME;
@@ -18,7 +20,7 @@ class Database
 
     public function __construct()
     {
-        $conn = "mysql:host={$this->dbHost};dbname={$this->dbName}";
+        $conn = "{$this->dbConnect}:host={$this->dbHost}:{$this->dbPort};dbname={$this->dbName}";
         $options = array(
             PDO::ATTR_PERSISTENT => true,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -28,7 +30,7 @@ class Database
             // dump("success connected to {$this->dbName}");
         } catch (PDOException $e) {
             $this->error = $e->getMessage();
-            // dump($this->error);
+            dump($this->error);
         }
     }
 
