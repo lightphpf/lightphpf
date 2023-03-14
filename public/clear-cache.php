@@ -1,3 +1,5 @@
+#!/usr/bin/env php
+
 <?php
 
 /**
@@ -5,27 +7,9 @@
  * Date: 2023-03-14
  */
 
-use RecursiveIteratorIterator;
-use RecursiveDirectoryIterator;
+use App\Commands\ClearCache;
 
-require_once __DIR__ . '/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-// Get the location of the cache directory
-$cacheDir = $config['app_root'] . '/Bootstrap/Cache';
-// $cacheDir = sys_get_temp_dir() . '/app/Bootstrap/Cache';
-
-// Delete the contents of the cache directory
-$files = new RecursiveIteratorIterator(
-    new RecursiveDirectoryIterator($cacheDir, RecursiveDirectoryIterator::SKIP_DOTS),
-    RecursiveIteratorIterator::CHILD_FIRST
-);
-
-foreach ($files as $fileinfo) {
-    $action = ($fileinfo->isDir() ? 'rmdir' : 'unlink');
-    $action($fileinfo->getRealPath());
-}
-
-$file = fopen("{$cacheDir}/.gitignore", "w") or dump("Unable to open file!");
-$txt = "*\n!.gitignore";
-fwrite($file, $txt);
-fclose($file);
+$clearCache = new ClearCache();
+$clearCache->run();
