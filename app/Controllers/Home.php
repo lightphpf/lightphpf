@@ -15,9 +15,13 @@ class Home extends Controller
     {
         $user = $this->model(User::class);
 
-        $this->view('index', [
-            'users' => $user->getUsers(),
-            'title' => 'Home page'
+        $template = $this->twig->load('index.twig');
+        
+        echo $template->render([
+            'app_url' => $this->app_url,
+            'app_name' => $this->app_name,
+            'title' => 'Home Page',
+            'users' => $user->getUsers()
         ]);
     }
 }

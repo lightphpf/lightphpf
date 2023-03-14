@@ -6,17 +6,14 @@
  */
 
 use App\Init;
+use Twig\Environment;
+use Twig\Loader\FilesystemLoader;
 
-/**
- * Time Zone Setting
- */
-date_default_timezone_set('Europe/London');
+require_once __DIR__ . '/autoload.php';
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$twigLoader = new FilesystemLoader($config['app_root'] . '/Views');
+$twig = new Environment($twigLoader, [
+    'cache' => $config['app_root'] . '/Bootstrap/Cache',
+]);
 
-require_once __DIR__ . '/../vendor/autoload.php';
-$config = require_once __DIR__ . '/../config/app.php';
-
-$init = new Init($config);
+$init = new Init($config, $twig);

@@ -2,13 +2,15 @@
 
 namespace App\Core;
 
+use Twig\Environment;
+
 class App
 {
     protected $currentController = '\App\Controllers\Home';
     protected $currentMethod = 'index';
     protected $params = [];
 
-    public function __construct(array $config)
+    public function __construct(array $config, Environment $twig)
     {
         $url = $this->getUrl();
 
@@ -21,7 +23,7 @@ class App
         }
 
         // Instantiate controller class
-        $this->currentController = new $this->currentController($config);
+        $this->currentController = new $this->currentController($config, $twig);
         
         // Check for second part of url
         if (isset($url[1])) {
