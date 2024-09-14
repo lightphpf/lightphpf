@@ -31,7 +31,7 @@ composer install
 
 Clear views cache:
 ```sh
-chmod +x ./public/clear-cache.php && ./public/clear-cache.php
+./public/clear-cache.php
 ```
 
 ---

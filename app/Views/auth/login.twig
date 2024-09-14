@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include '/partials/head.twig' %}
+  </head>
+  <body>
+    {% include '/partials/nav.twig' %}
+    <div class="container my-5">
+      <h1>{{ title }}</h1>
+
+      <form method="POST" action="{{ app_url }}/login">
+        <div class="form-group mb-2">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-2">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-2 form-check">
+          <input type="checkbox" class="form-check-input" id="rememberMe" />
+          <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-dark">Login</button>
+      </form>
+    </div>
+    {% include '/partials/footer.twig' %}
+  </body>
+</html>

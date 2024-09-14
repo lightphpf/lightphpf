@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core;
 
 use Twig\Environment;
@@ -24,7 +26,7 @@ class App
 
         // Instantiate controller class
         $this->currentController = new $this->currentController($config, $twig);
-        
+
         // Check for second part of url
         if (isset($url[1])) {
             // Check to see if method exists in controller
@@ -34,7 +36,7 @@ class App
                 unset($url[1]);
             }
         }
-        
+
         // Get params
         $this->params = $url ? array_values($url) : [];
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 class ClearCache
@@ -14,7 +16,7 @@ class ClearCache
 
     /**
      * Execute CLI
-     * 
+     *
      * @return void
      * @throws \Throwable
      */
@@ -27,7 +29,6 @@ class ClearCache
             $this->createGitFile($this->cacheDir);
 
             dump("Cache Cleared Successfully\n");
-
         } catch (\Throwable $th) {
             dump('Something went wrong...');
         }

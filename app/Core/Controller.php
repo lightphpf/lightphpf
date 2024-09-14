@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Core;
 
 use Twig\Environment;
@@ -15,7 +17,7 @@ class Controller
     {
         $this->twig = $twig;
         $this->config = $config;
-        
+
         $this->app_name = $config['app_name'];
         $this->app_url = $config['app_url'];
     }

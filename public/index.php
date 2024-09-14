@@ -5,6 +5,9 @@
  * Date: 2023-03-14
  */
 
+session_name('lightphpf_session');
+session_start();
+
 use App\Init;
 
 /*

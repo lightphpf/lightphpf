@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     {% include '/partials/head.twig' %}
-</head>
-<body>
+  </head>
+  <body>
     {% include '/partials/nav.twig' %}
-    <h1>{{ title  }}</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate iusto saepe minima aliquid quae commodi ex molestias dolores perferendis, assumenda iure facilis sint? Voluptatem voluptate placeat soluta magnam, porro commodi autem. Modi, voluptate nesciunt. Repellat, aut cumque dolorum, debitis eligendi neque porro id voluptates quos error explicabo ut excepturi sint.</p>
-    <h3>List Users</h3>
-    <ul>
-        {% for user in users %}
-            <li>{{ user.id }} - {{ user.username }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container my-5">
+      <h1>{{ title }}</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate iusto
+        saepe minima aliquid quae commodi ex molestias dolores perferendis,
+        assumenda iure facilis sint? Voluptatem voluptate placeat soluta magnam,
+        porro commodi autem. Modi, voluptate nesciunt. Repellat, aut cumque
+        dolorum, debitis eligendi neque porro id voluptates quos error explicabo
+        ut excepturi sint.
+      </p>
+    </div>
     {% include '/partials/footer.twig' %}
-</body>
+  </body>
 </html>

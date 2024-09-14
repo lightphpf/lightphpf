@@ -1,1 +1,8 @@
 /vendor/
+/.phpunit.result.cache
+/phpunit.xml
+.idea/
+.vscode/*
+.githooks/*
+.TODO
+.php-cs-fixer.cache

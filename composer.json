@@ -1,27 +1,47 @@
 {
-    "name": "soulaimaneyh/lightphpf",
-    "description": "LightPHPF is a micro PHP framework that follows the Model-View-Controller (MVC) architecture pattern.",
-    "type": "project",
-    "keywords": ["framework", "lightphpf"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Soulaimane yahya",
-            "email": "soulaimaneyh07@gmail.com"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "App\\": "app"
-        }
-    },
-    "require": {
-        "php": "^8.1",
-        "symfony/var-dumper": "^5.0",
-        "vlucas/phpdotenv": "^5.5",
-        "twig/twig": "^3.5"
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^3.7"
+  "name": "soulaimaneyh/lightphpf",
+  "description": "LightPHPF is a micro PHP framework that follows the Model-View-Controller (MVC) architecture pattern.",
+  "type": "project",
+  "keywords": [
+    "framework",
+    "lightphpf"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Soulaimane yahya",
+      "email": "soulaimaneyh07@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app"
+    }
+  },
+  "scripts": {
+    "php-psr": [
+      "find app/Commands -type f -name \"*.php\" -print0 | xargs -0 -n1 php -lf",
+      "find app/Controllers -type f -name \"*.php\" -print0 | xargs -0 -n1 php -lf",
+      "find app/Core -type f -name \"*.php\" -print0 | xargs -0 -n1 php -lf",
+      "find app/Models -type f -name \"*.php\" -print0 | xargs -0 -n1 php -lf",
+      "vendor/bin/php-cs-fixer fix --allow-risky=yes app/Commands --rules=declare_strict_types,@PSR12",
+      "vendor/bin/php-cs-fixer fix --allow-risky=yes app/Controllers --rules=declare_strict_types,@PSR12",
+      "vendor/bin/php-cs-fixer fix --allow-risky=yes app/Core --rules=declare_strict_types,@PSR12",
+      "vendor/bin/php-cs-fixer fix --allow-risky=yes app/Models --rules=declare_strict_types,@PSR12",
+      "./vendor/bin/phpcs --standard=PSR2 --encoding=utf-8 --extensions=php app/Commands",
+      "./vendor/bin/phpcs --standard=PSR2 --encoding=utf-8 --extensions=php app/Controllers",
+      "./vendor/bin/phpcs --standard=PSR2 --encoding=utf-8 --extensions=php app/Core",
+      "./vendor/bin/phpcs --standard=PSR2 --encoding=utf-8 --extensions=php app/Models"
+    ]
+  },
+  "require": {
+    "php": "^8.1",
+    "symfony/var-dumper": "^5.0",
+    "vlucas/phpdotenv": "^5.5",
+    "twig/twig": "^3.5"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
+    "friendsofphp/php-cs-fixer": "dev-master"
+  }
 }

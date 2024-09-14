@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controllers;
 
-use App\Models\User;
 use App\Core\Controller;
 
 class Home extends Controller
@@ -13,15 +14,12 @@ class Home extends Controller
      */
     public function index(): void
     {
-        $user = $this->model(User::class);
-
         $template = $this->twig->load('index.twig');
-        
+
         echo $template->render([
             'app_url' => $this->app_url,
             'app_name' => $this->app_name,
             'title' => 'Home Page',
-            'users' => $user->getUsers()
         ]);
     }
 }

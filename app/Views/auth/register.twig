@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include '/partials/head.twig' %}
+  </head>
+  <body>
+    {% include '/partials/nav.twig' %}
+
+    <div class="container my-5">
+      <h1>{{ title }}</h1>
+
+      <form method="POST" action="{{ app_url }}/register">
+        <div class="form-group mb-2">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-2">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter email"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-2">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-2">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-sm btn-dark">Register</button>
+      </form>
+    </div>
+
+    {% include '/partials/footer.twig' %}
+  </body>
+</html>

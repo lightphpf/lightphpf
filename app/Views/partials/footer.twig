@@ -1,5 +1,10 @@
-<p>© <span id="currentYear"></span> {{ app_name  }} | Made With 🖤 By Soulaimane Yahya</p>
+<p>© <span id="currentYear"></span> {{ app_name }} | Made With 🖤 By Soulaimane Yahya</p>
 
-<script>
-document.querySelector("#currentYear").innerHTML=(new Date).getFullYear();
+<script
+  src="{{ app_url }}/public/assets/js/bootstrap.bundle.min.js"
+  defer
+></script>
+<script src="{{ app_url }}/public/assets/js/script.js" defer></script>
+<script defer>
+  document.querySelector("#currentYear").innerHTML = new Date().getFullYear();
 </script>
